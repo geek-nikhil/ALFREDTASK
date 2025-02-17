@@ -30,7 +30,7 @@ router.get("/due", async (req, res) => {
   try {
     // Find flashcards where nextReviewDate is today or earlier
     const dueCards = await Card.find({
-      nextReviewDate: { $lte: "2025-02-22T23:59:59.999Z" },
+      nextReviewDate: { $lte: new Date() },
     });
 
     // Respond with the due flashcards
